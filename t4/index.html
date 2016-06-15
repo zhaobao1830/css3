@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>倒计时</title>
+    <script type="text/javascript" src="../js/jquery-1.11.3.js"></script>
+    <style>
+        *{padding:0;margin:0;}
+        body{font-size:16px;}
+        .timeBox{color:#6dbec5;margin:10px auto;}
+        .time{border: 1px solid #6dbec5;width: 40px;height: 20px;text-align: center; line-height: 20px;display: inline-block;}
+    </style>
+</head>
+<body>
+    <div class="timeBox" id="times1">
+        距离结束
+        <span class="time date">00</span>天 <span class="time hour">00</span>:<span class="time minutes">00</span>:<span class="time seconds">00</span>
+    </div>
+    <script type="text/javascript">
+        function FreshTime(id,times){
+            var endtime=new Date(times)
+            var nowtime=new Date() //当前的时间
+            var lefttime=parseInt((endtime.getTime()-nowtime.getTime())/1000);
+            var d, h, m,s;
+            d=parseInt(lefttime/3600/24)
+            h=parseInt((lefttime/3600)%24)
+            m=parseInt((lefttime/60)%60)
+            s=parseInt(lefttime%60)
+
+            if(d<10){
+                d="0"+d
+            }
+            if(h<10){
+               h="0"+h
+            }
+            if(m<10){
+                m="0"+m
+            }
+            if(s<10){
+                s="0"+s
+            }
+
+            $(id).find(".date").text(d);
+            $(id).find(".hour").text(h);
+            $(id).find(".minutes").text(m);
+            $(id).find(".seconds").text(s);
+
+            if(lefttime<=0){
+                $(id).find(".date").text("00");
+                $(id).find(".hour").text("00");
+                $(id).find(".minutes").text("00");
+                $(id).find(".seconds").text("00");
+                clearInterval(sh);
+            }
+        }
+
+        $(function(){
+            var sh
+            sh=setInterval(function(){
+                FreshTime("#times1","2016/06/30,20:00:00");
+            },1000)
+        })
+    </script>
+</body>
+</html>
