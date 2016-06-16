@@ -1,0 +1,122 @@
+<!--
+	声明文档类型:html  符合W3C统一标准规范
+	为什么要做这个声明？不做声明有什么影响？
+	每个浏览器对html css js都有不同编译方式(怪异模式)
+-->
+<!doctype html>
+<html><!--超文本标记语言  人-->
+	<head lang="en"><!--头部 规定一些信息(提供给浏览器识别) 用户看不到 非可视化标签-->
+		<meta charset="utf-8"><!--字符编码:utf-8 国际编码 gbk gb2312中文编码-->
+		<!--网页文档三要素-->
+		<title>跟随鼠标-玄武老师</title><!--标题-->
+		<meta name="keywords" content="关键词1,关键词2">
+		<meta name="description" content="描述:对网页内容的大概介绍">
+		<style>/*css 存放位置*/
+		*{/*通用选择器:选择到所有的标签元素*/
+			margin:0px;/*外边距*/
+			padding:0px;/*内边距*/
+			/*
+				单独设置每个边距
+				margin-top:上
+				margin-bottom下
+				margin-left:左 
+				margin-right 右
+				
+				统一设置边距
+				margin:10px 上下左右 10px
+				margin:10px 20px 上下10px 左右20px
+				margin:10px 20px 30px 上10px 左右20px 下30px
+				margin:10px 20px 30px 40px 顺时针 上右下左
+				
+			*/
+		}
+		#wrap{/* # id选择器*/
+			position:relative;/*相对定位:参考物*/
+			width:1155px;/*宽度*/
+			height:450px;/*高度*/
+			/*background:red;背景颜色:红色*/
+			margin:50px auto;/*上下50px 左右自动(居中)*/
+		}
+		#wrap ul li{/*混合选择器:一级一级的往下找*/
+			position:relative;/*相对定位*/
+			z-index:1000;/*只有拥有定位属性的元素才能设置层级*/
+			list-style:none;/*去除前面的小黑圆点*/
+			width:230px;
+			height:150px;
+			border-right:1px dotted #ccc;/*边框线: 宽度 类型(点状线) 颜色(灰色)*/
+			border-bottom:1px dotted #ccc;
+			float:left;/*浮动:左浮动(和父元素的左端对齐依次往右显示)*/
+			background:url("images/clients.png");
+			transition:1s;/*css3动画过渡:时间(1s之内改变)*/
+		}
+		#wrap ul li.last{/* .class类选择器*/
+			border-bottom:none;
+		}
+		.box{
+			position:absolute;/*定位元素:绝对定位 漂浮起来了*/
+			left:0px;/*距离参考物左端的距离*/
+			top:0px;/*距离参考物上端的距离*/
+			z-index:10;
+			width:230px;
+			height:150px;
+			background:rgba(0,0,0,.4);/*背景透明：red红色(0-255) green绿色 blue蓝色 a透明度(0-1)*/
+			transition:1s;/*css3动画过渡:时间(1s之内改变)*/
+		}
+		</style>
+	</head>
+	<body><!--身体 可视化标签-->
+		<!--盒子模型标签div 宽度 高度 位置 边框 -->
+		<div id="wrap"><!--id="自定义名称" 唯一的(身份证号)命名规范(有语意的英文单词)-->
+			<ul><!--无序列标签-->
+				<li style="background-position:0px 0px;"></li>
+				<li style="background-position:-230px 0px;"></li>
+				<li style="background-position:-460px 0px;"></li>
+				<li style="background-position:-690px 0px;"></li>
+				<li style="background-position:-920px 0px;"></li>
+				<li style="background-position:-1150px 0px;"></li>
+				<li style="background-position:-1380px 0px;"></li>
+				<li style="background-position:-1610px 0px;"></li>
+				<li style="background-position:-1840px 0px;"></li>
+				<li style="background-position:-2070px 0px;"></li>
+				<li class="last" style="background-position:-2300px 0px;"><!--class="自定义名称" 可重复(姓名)-->
+				</li>
+				<li class="last" style="background-position:-2530px 0px;"></li>
+				<li class="last" style="background-position:-2760px 0px;"></li>
+				<li class="last" style="background-position:-2990px 0px;"></li>
+				<li class="last" style="background-position:-3220px 0px;"></li>
+			</ul>
+			<div class="box"></div>
+		</div>
+		<script>
+			//获取到所有的li标签
+			var oLi = document.getElementsByTagName("li");
+			//获取class=box的这个div
+			var box = document.getElementsByClassName("box")[0];
+			var backgroundPostionLeft //当前的backgroundPostion的left值
+			//通过循环来获取每个li绑定鼠标滑动事件
+			for (var i=0;i<oLi.length ;i++ )
+			{
+				//给每个li绑定鼠标滑动事件
+				oLi[i].onmousemove = function(){
+					//获取鼠标滑上去的li的位置
+					//this 鼠标划到哪个li上面就代表哪个li
+					//鼠标滑动到谁上面就改变谁的背景位置
+//  				    this.style.backgroundPositionY = "-150px";
+
+
+					var _left = this.offsetLeft;//鼠标滑上去的li与父元素左边的距离
+					var _top = this.offsetTop;//鼠标滑上去的li与父元素上端的距离
+					var backgroundPostion=this.style.backgroundPosition
+					backgroundPostionLeft=backgroundPostion.split(" ")[0]
+					this.style.backgroundPosition=backgroundPostionLeft+" -150px"
+					//把鼠标滑上去的li的距离赋值给box
+					box.style.left = _left + "px";
+					box.style.top = _top + "px";
+				}
+				oLi[i].onmouseout = function(){//鼠标离开Li实现什么动画
+					this.style.backgroundPosition = backgroundPostionLeft+" 0px";
+				}
+			}
+		</script>
+	</body>
+</html>
