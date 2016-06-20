@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>鼠标放到图片上，显示下面的文字</title>
+    <style>
+        .gmiddle{
+            width: 1220px;
+            margin:0 auto;
+        }
+        .aboutls_img{
+            width: 100%;
+            height:650px;
+            background: url("images/aboutls_img1.png") no-repeat center top;
+        }
+        .aboutls_img .title{
+            width: 649px;
+            text-align: center;
+            color: #fffefe;
+            padding-top: 30px;
+            margin:0 auto;
+        }
+        .aboutls_img .title h3{
+            font-size: 18px;
+            font-weight: normal;
+            line-height: 30px;
+        }
+        .aboutls_img .title img{
+            margin: 15px auto;
+        }
+        .aboutls_img .gmiddle{
+            height:432px;
+            position: relative;
+        }
+        .aboutls_img .gmiddle .con_1{
+            width: 100%;
+            height:149px;
+            background: url("images/aboutls_img2.png") no-repeat center top;
+        }
+        .aboutls_img .gmiddle .con_2{
+            width: 100%;
+            height:150px;
+            background: url("images/aboutls_img3.png") no-repeat center top;
+        }
+        .aboutls_img .gmiddle .con_3{
+            width: 100%;
+            height:133px;
+            background: url("images/aboutls_img4.png") no-repeat center top;
+        }
+        .aboutls_img .gmiddle .content{
+            height:416px;
+            width: 1181px;
+            position: absolute;
+            top:1px;
+            left:20px;
+            overflow: hidden;
+        }
+        .aboutls_img .gmiddle .content>div{
+            width: 392px;
+            height:100%;
+            float: left;
+            position: relative;
+        }
+        .aboutls_img .gmiddle .content .box2{
+            width: 100%;
+            height:100%;
+            position: absolute;
+            top:0;
+            left:0;
+            z-index: 2;
+            background-color: #000;
+            opacity: 0.2;
+            filter:alpha(opacity=20);
+            -moz-transition: background-color 1s;
+            -webkit-transition: background-color 1s;
+            -ms-transition: background-color 1s;
+            -o-transition: background-color 1s;
+            transition: background-color 1s;
+        }
+        .aboutls_img .gmiddle .content>div:first-child{
+            margin-right: 2px;
+        }
+        .aboutls_img .gmiddle .content>div:last-child{
+            margin-left: 2px;
+            float: right;
+        }
+        .aboutls_img .gmiddle .content .box1{
+            position: relative;
+            border:8px solid transparent;
+            width: 375px;
+            height:400px;
+            overflow: hidden;
+            z-index: 5;
+            -moz-transition: border 1s;
+            -webkit-transition: border 1s;
+            -ms-transition: border 1s;
+            -o-transition: border 1s;
+            transition: border 1s;
+        }
+        .aboutls_img .gmiddle .content .box1 img{
+            display: block;
+        }
+        .aboutls_img .gmiddle .content .box1 .img1{
+            margin-top: 105px;
+            margin-left: 105px;
+            margin-bottom: 105px;
+            -moz-transition: margin-top 0.5s,margin-bottom 1s ;
+            -webkit-transition: margin-top 0.5s,margin-bottom 1s ;
+            -ms-transition: margin-top 0.5s,margin-bottom 1s ;
+            -o-transition: margin-top 0.5s,margin-bottom 1s ;
+            transition: margin-top 0.5s,margin-bottom 1s ;
+        }
+        .aboutls_img .gmiddle .content .box1 .img2{
+            margin-left: 175px;
+            opacity: 1;
+            filter:alpha(opacity=100);
+        }
+        .aboutls_img .gmiddle .content .box1 .box1_con{
+            height:300px;
+            padding-top: 30px;
+            color: #fff;
+            display: none;
+        }
+        .aboutls_img .gmiddle .content .box1 .box1_con p{
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        .aboutls_img .gmiddle .content .box1 .box1_con .ul1{
+            width: 300px;
+            height:115px;
+            margin:0 auto;
+            padding:0 5px 0 10px;
+            position: relative;
+        }
+        .aboutls_img .gmiddle .content .box1 .box1_con .ul1 .ul1_box{
+            width: 100%;
+            height:100%;
+            background-color: #000;
+            opacity: 0.2;
+            filter:alpha(opacity=20);
+            position: absolute;
+            z-index: 2;
+            top:0;
+            left:0;
+        }
+        .aboutls_img .gmiddle .content .box1 .box1_con .ul1 .ul1_list{
+            position: relative;
+            z-index: 5;
+        }
+        .aboutls_img .gmiddle .content .box1 .box1_con .ul1 a{
+            float: left;
+            width: 50%;
+            font-size: 12px;
+            line-height: 28px;
+            color: #fff;
+        }
+        .aboutls_img .gmiddle .content .box1 .box1_con .ul2{
+            width: 245px;
+            height:100px;
+            margin:0 auto;
+        }
+        .aboutls_img .gmiddle .content .box1 .box1_con .ul2 a{
+            float: left;
+            width: 33%;
+            font-size: 14px;
+            line-height: 30px;
+            color: #fff;
+        }
+        .aboutls_img .gmiddle .content>div:hover .box2{
+            opacity: 0;
+            filter:alpha(opacity=0);
+        }
+        .aboutls_img .gmiddle .content>div:hover .box1{
+            border:8px solid #eb7e3c;
+        }
+        .aboutls_img .gmiddle .content>div:hover .box1 .img1{
+            margin-top: 67px;
+            margin-bottom: 0;
+        }
+        .aboutls_img .gmiddle .content>div:hover .box1 .img2{
+            opacity: 0;
+            filter:alpha(opacity=0);
+        }
+        .aboutls_img .gmiddle .content>div:hover .box1 .box1_con{
+            display: block;
+        }
+
+    </style>
+</head>
+<body>
+<div class="aboutls_img">
+    <div class="title">
+        <h3>XXX依托集团强大资源全力打造互联网时代企业服务的超级入口，<br>成就中国企业综合服务第一平台，构建中国企业服务生态系统。</h3>
+        <img src="images/aboutls_img5.png">
+    </div>
+    <div class="gmiddle">
+        <div class="con_1"></div>
+        <div class="con_2"></div>
+        <div class="con_3"></div>
+        <div class="content">
+            <div>
+                <div class="box1">
+                    <img src="images/about_con1.png" class="img1">
+                    <img src="images/about_conup.png" class="img2">
+                    <div class="box1_con">
+                        <img src="images/box1_con1.png" style="margin: 0 auto">
+                    </div>
+                </div>
+                <div class="box2"></div>
+            </div>
+            <div>
+                <div class="box1">
+                    <img src="images/about_con2.png" class="img1" style="margin-left: 97px;">
+                    <img src="images/about_conup.png" class="img2">
+                    <div class="box1_con">
+                        <p>XXX整合集团资源，打通全产业链，打造</p>
+                        <p>互联网时代企业服务的完整生态系统</p>
+                        <div class="ul1">
+                            <div class="ul1_box"></div>
+                            <div class="ul1_list">
+                                <a>公司名称有限公司1分公司</a>
+                                <a>公司名称有限公司2</a>
+                                <a>公司名称有限公司3</a>
+                                <a>公司名称有限公司4分公司</a>
+                                <a>公司名称有限公司5</a>
+                                <a>公司名称有限公司6分公司</a>
+                                <a>公司名称有限公司7</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="box2"></div>
+            </div>
+            <div style="float: right">
+                <div class="box1">
+                    <img src="images/about_con3.png" class="img1">
+                    <img src="images/about_conup.png" class="img2">
+                    <div class="box1_con">
+                        <div class="ul2">
+                            <a>金融服务</a>
+                            <a>工商服务</a>
+                            <a>资质许可</a>
+                            <a>商标专利</a>
+                            <a>项目申报</a>
+                            <a>财税服务</a>
+                            <a>法律服务</a>
+                            <a>品牌推广</a>
+                            <a>IT服务</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="box2"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
