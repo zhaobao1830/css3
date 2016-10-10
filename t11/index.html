@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>获取当前系统时间</title>
+    <script>
+       window.onload=function(){
+           function time() {
+               function fillZero(n) {
+                   if (n < 10) {
+                       return '0' + n;
+                   }
+                   else {
+                       return '' + n;
+                   }
+               }
+
+               var countdown = document.getElementById("nowTime");
+               var oDate = new Date();
+               var h =fillZero((oDate.getHours()).toString())
+               var m=fillZero((oDate.getMinutes()).toString())
+               var s=fillZero((oDate.getSeconds()).toString())
+               var time =h+':' +m+':'+s;
+               countdown.innerHTML=time
+           }
+           time();
+           setInterval(time,1000)
+       }
+    </script>
+</head>
+<body>
+    <div id="nowTime">
+
+    </div>
+</body>
+</html>

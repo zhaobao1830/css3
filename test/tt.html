@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .align_cc{
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+        }
+        .align_box{
+            width: 200px;
+            height: 200px;
+            display: table-cell;
+            vertical-align: middle;
+            text-align: center;
+            position: relative;
+        }
+        .align_word{
+            display: inline-block;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            width: 100%;
+        }
+        .align_word a{
+            display: inline-block;
+            position: relative;
+            top: -50%;
+        }
+        .c_left{
+            float: left;
+            width: 200px;
+            display: inline-block;
+        }
+        .c_right{
+            margin-left: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!--单文字垂直居中-->
+    <div class="align_cc">我是12345</div>
+    <!--多行文字垂直居中-->
+    <div class="align_box">
+         <span class="align_word">
+                <a href="">文字垂直居中对齐文字垂直居中对齐文字垂直居中对齐</a>
+        </span>
+    </div>
+    <!-- 请用div+css写出左侧固定(width：200px)，右侧自适应的页面布局。-->
+    <div class="c">
+        <div class="c_left">我是测试左边的</div>
+        <div class="c_right">我是测试右边的</div>
+    </div>
+</body>
+</html>
