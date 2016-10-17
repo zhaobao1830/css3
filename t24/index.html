@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>半椭圆</title>
+    <style>
+        /*border-radius是一种缩写方法。如果“/”前后的值都存在，那么“/”前面的值设置其水平半径，“/”后面值设置其垂直半径。*/
+        div {display: inline-block;width:8em;height:5em;margin:0 1em;background: #fb3;
+            border-radius: 50% / 100% 100% 0 0;}
+        div:nth-of-type(2) { border-radius: 50% / 0 0 100% 100%; }
+        div:nth-of-type(3) { border-radius: 100% 0 0 100% / 50%; }
+        div:nth-of-type(4) { border-radius: 0 100% 100% 0 / 50%; }
+    </style>
+</head>
+<body>
+<div></div><div></div><div></div><div></div>
+</body>
+</html>

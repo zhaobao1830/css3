@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>染色效果（混合）</title>
+    <style>
+        .tinted-image{
+            width: 640px;
+            height: 400px;
+            background-size: cover;
+            background-color: hsl(335,100%,50%);
+            background-blend-mode: luminosity;
+            transition: .5s background-color;
+        }
+    </style>
+</head>
+<body>
+<div style="background-image:url(http://csssecrets.io/images/tiger.jpg)" class="tinted-image"></div>
+</body>
+</html>

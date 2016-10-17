@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>菱形</title>
+    <style>
+        .diamond{
+            display: inline-block;
+            width: 250px;
+            height: 250px;
+            transform: rotate(45deg);
+            overflow: hidden;
+            margin: 50px;
+        }
+        .diamond img{
+            max-width:100%;
+            transform:rotate(-45deg) scale(1.42);
+            z-index:-1;
+            position:relative;
+        }
+        .clip{
+            max-width: 250px;
+            margin: 20px;
+            -webkit-clip-path:polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+            clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+        }
+        .clip:hover{
+            -webkit-clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+            clip-path:polygon(0 0,100% 0,100% 100%,0 100%);}
+        }
+    </style>
+</head>
+<body>
+    <div class="diamond">
+        <img src="http://csssecrets.io/images/adamcatlace.jpg"/>
+    </div>
+    <img src="http://csssecrets.io/images/adamcatlace.jpg" class="clip"/>
+</body>
+</html>
